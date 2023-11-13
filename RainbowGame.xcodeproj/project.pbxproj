@@ -9,21 +9,29 @@
 /* Begin PBXBuildFile section */
 		865B48682B024E5A00EE81AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865B48672B024E5A00EE81AA /* AppDelegate.swift */; };
 		865B486A2B024E5A00EE81AA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865B48692B024E5A00EE81AA /* SceneDelegate.swift */; };
-		865B486C2B024E5A00EE81AA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865B486B2B024E5A00EE81AA /* ViewController.swift */; };
-		865B486F2B024E5A00EE81AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 865B486D2B024E5A00EE81AA /* Main.storyboard */; };
 		865B48712B024E5B00EE81AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 865B48702B024E5B00EE81AA /* Assets.xcassets */; };
 		865B48742B024E5B00EE81AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 865B48722B024E5B00EE81AA /* LaunchScreen.storyboard */; };
+		865B48982B025DC800EE81AA /* UILabel+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865B48972B025DC800EE81AA /* UILabel+App.swift */; };
+		865B489C2B025DFC00EE81AA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865B489B2B025DFC00EE81AA /* MainViewController.swift */; };
+		865B489E2B025E0E00EE81AA /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865B489D2B025E0E00EE81AA /* GameViewController.swift */; };
+		865B48A02B025E1C00EE81AA /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865B489F2B025E1C00EE81AA /* RulesViewController.swift */; };
+		865B48A22B025E2900EE81AA /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865B48A12B025E2900EE81AA /* ResultsViewController.swift */; };
+		865B48A42B025E3300EE81AA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865B48A32B025E3300EE81AA /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		865B48642B024E5A00EE81AA /* RainbowGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RainbowGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		865B48672B024E5A00EE81AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		865B48692B024E5A00EE81AA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		865B486B2B024E5A00EE81AA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		865B486E2B024E5A00EE81AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		865B48702B024E5B00EE81AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		865B48732B024E5B00EE81AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		865B48752B024E5B00EE81AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		865B48972B025DC800EE81AA /* UILabel+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+App.swift"; sourceTree = "<group>"; };
+		865B489B2B025DFC00EE81AA /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		865B489D2B025E0E00EE81AA /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		865B489F2B025E1C00EE81AA /* RulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
+		865B48A12B025E2900EE81AA /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		865B48A32B025E3300EE81AA /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +64,211 @@
 		865B48662B024E5A00EE81AA /* RainbowGame */ = {
 			isa = PBXGroup;
 			children = (
-				865B48672B024E5A00EE81AA /* AppDelegate.swift */,
-				865B48692B024E5A00EE81AA /* SceneDelegate.swift */,
-				865B486B2B024E5A00EE81AA /* ViewController.swift */,
-				865B486D2B024E5A00EE81AA /* Main.storyboard */,
+				865B487C2B0256D900EE81AA /* Modules */,
+				865B487E2B0256FF00EE81AA /* UIConstants */,
+				865B487D2B0256EF00EE81AA /* Common */,
+				865B487B2B024ECD00EE81AA /* Application */,
+			);
+			path = RainbowGame;
+			sourceTree = "<group>";
+		};
+		865B487B2B024ECD00EE81AA /* Application */ = {
+			isa = PBXGroup;
+			children = (
 				865B48702B024E5B00EE81AA /* Assets.xcassets */,
 				865B48722B024E5B00EE81AA /* LaunchScreen.storyboard */,
 				865B48752B024E5B00EE81AA /* Info.plist */,
+				865B48672B024E5A00EE81AA /* AppDelegate.swift */,
+				865B48692B024E5A00EE81AA /* SceneDelegate.swift */,
 			);
-			path = RainbowGame;
+			path = Application;
+			sourceTree = "<group>";
+		};
+		865B487C2B0256D900EE81AA /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				865B48832B02576000EE81AA /* Main */,
+				865B48822B02575E00EE81AA /* Game */,
+				865B48812B02575C00EE81AA /* Rules */,
+				865B48802B02575A00EE81AA /* Results */,
+				865B487F2B02574F00EE81AA /* Settings */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		865B487D2B0256EF00EE81AA /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		865B487E2B0256FF00EE81AA /* UIConstants */ = {
+			isa = PBXGroup;
+			children = (
+				865B48972B025DC800EE81AA /* UILabel+App.swift */,
+			);
+			path = UIConstants;
+			sourceTree = "<group>";
+		};
+		865B487F2B02574F00EE81AA /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				865B48922B02582200EE81AA /* Models */,
+				865B48912B02582100EE81AA /* Views */,
+				865B48902B02581F00EE81AA /* Controllers */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		865B48802B02575A00EE81AA /* Results */ = {
+			isa = PBXGroup;
+			children = (
+				865B488F2B02581C00EE81AA /* Models */,
+				865B488E2B02581A00EE81AA /* Views */,
+				865B488D2B02581800EE81AA /* Controllers */,
+			);
+			path = Results;
+			sourceTree = "<group>";
+		};
+		865B48812B02575C00EE81AA /* Rules */ = {
+			isa = PBXGroup;
+			children = (
+				865B488C2B0257E900EE81AA /* Models */,
+				865B488B2B0257E700EE81AA /* Views */,
+				865B488A2B0257E500EE81AA /* Controllers */,
+			);
+			path = Rules;
+			sourceTree = "<group>";
+		};
+		865B48822B02575E00EE81AA /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				865B48892B0257E300EE81AA /* Models */,
+				865B48882B0257E200EE81AA /* Views */,
+				865B48872B0257E000EE81AA /* Controllers */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		865B48832B02576000EE81AA /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				865B48862B0257D900EE81AA /* Models */,
+				865B48852B0257D800EE81AA /* Views */,
+				865B48842B0257D600EE81AA /* Controllers */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		865B48842B0257D600EE81AA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				865B489B2B025DFC00EE81AA /* MainViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		865B48852B0257D800EE81AA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		865B48862B0257D900EE81AA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		865B48872B0257E000EE81AA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				865B489D2B025E0E00EE81AA /* GameViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		865B48882B0257E200EE81AA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		865B48892B0257E300EE81AA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		865B488A2B0257E500EE81AA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				865B489F2B025E1C00EE81AA /* RulesViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		865B488B2B0257E700EE81AA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		865B488C2B0257E900EE81AA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		865B488D2B02581800EE81AA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				865B48A12B025E2900EE81AA /* ResultsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		865B488E2B02581A00EE81AA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		865B488F2B02581C00EE81AA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		865B48902B02581F00EE81AA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				865B48A32B025E3300EE81AA /* SettingsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		865B48912B02582100EE81AA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		865B48922B02582200EE81AA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +331,6 @@
 			files = (
 				865B48742B024E5B00EE81AA /* LaunchScreen.storyboard in Resources */,
 				865B48712B024E5B00EE81AA /* Assets.xcassets in Resources */,
-				865B486F2B024E5A00EE81AA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +341,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				865B486C2B024E5A00EE81AA /* ViewController.swift in Sources */,
+				865B489C2B025DFC00EE81AA /* MainViewController.swift in Sources */,
+				865B48982B025DC800EE81AA /* UILabel+App.swift in Sources */,
+				865B48A42B025E3300EE81AA /* SettingsViewController.swift in Sources */,
+				865B48A22B025E2900EE81AA /* ResultsViewController.swift in Sources */,
+				865B48A02B025E1C00EE81AA /* RulesViewController.swift in Sources */,
+				865B489E2B025E0E00EE81AA /* GameViewController.swift in Sources */,
 				865B48682B024E5A00EE81AA /* AppDelegate.swift in Sources */,
 				865B486A2B024E5A00EE81AA /* SceneDelegate.swift in Sources */,
 			);
@@ -147,14 +355,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		865B486D2B024E5A00EE81AA /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				865B486E2B024E5A00EE81AA /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		865B48722B024E5B00EE81AA /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -289,12 +489,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5MT2PBNQ85;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RainbowGame/Info.plist;
+				INFOPLIST_FILE = RainbowGame/Application/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,9 +503,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zcredi.RainbowGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -317,12 +521,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5MT2PBNQ85;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RainbowGame/Info.plist;
+				INFOPLIST_FILE = RainbowGame/Application/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -330,9 +535,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zcredi.RainbowGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
