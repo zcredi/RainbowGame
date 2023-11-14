@@ -22,15 +22,17 @@ class ResultsViewController: UIViewController {
     
     private lazy var tableView: UITableView = {
         let element = UITableView()
-//        element.register(ChannelViewCell.self, forCellReuseIdentifier: ChannelViewCell.reuseID)
+        element.register(StatistickCell.self, forCellReuseIdentifier: "StatistickCell")
         element.separatorStyle = .none
-        element.rowHeight = UITableView.automaticDimension
         element.estimatedRowHeight = 80
-//        element.delegate = self
-//        element.dataSource = self
+        element.allowsSelection = false
+        element.delegate = self
+        element.dataSource = self
+        element.backgroundColor = .clear
         return element
     }()
     
+    private let statistick = Source.makeStatistick()
     
 
     override func viewDidLoad() {
@@ -56,8 +58,28 @@ class ResultsViewController: UIViewController {
         
         tableView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            make.leading.trailing.equalToSuperview()
+            make.leading.equalToSuperview().offset(30)
+            make.trailing.equalToSuperview().inset(30)
             make.bottom.equalTo(cleanButton.snp.top)
         }
     }
+}
+
+extension ResultsViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        statistick.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "StatistickCell", for: indexPath) as? StatistickCell else { fatalError() }
+        
+        cell.configureCell(statistick: statistick[indexPath.row])
+        return cell
+    }
+    
+    
+}
+
+extension ResultsViewController: UITableViewDelegate {
+
 }
