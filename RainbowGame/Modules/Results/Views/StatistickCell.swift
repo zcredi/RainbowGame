@@ -21,7 +21,7 @@ class StatistickCell: UITableViewCell{
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 20)
         label.textColor = .purple
-        label.text = "Игра "
+        label.text = "Игра №"
         return label
     }()
     
@@ -35,6 +35,7 @@ class StatistickCell: UITableViewCell{
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier )
+        self.backgroundColor = .clear
         setupViews()
     }
     
@@ -64,5 +65,8 @@ class StatistickCell: UITableViewCell{
         }
     }
     
-    
+    func configureCell(statistick:Statistick){
+        gameLabel.text = "Игра № \(statistick.gameNomer)"
+        timeLabel.text = "Время \(statistick.time)"
+    }
 }
