@@ -20,6 +20,17 @@ class ResultsViewController: UIViewController {
         return button
     }()
     
+    private lazy var tableView: UITableView = {
+        let element = UITableView()
+//        element.register(ChannelViewCell.self, forCellReuseIdentifier: ChannelViewCell.reuseID)
+        element.separatorStyle = .none
+        element.rowHeight = UITableView.automaticDimension
+        element.estimatedRowHeight = 80
+//        element.delegate = self
+//        element.dataSource = self
+        return element
+    }()
+    
     
 
     override func viewDidLoad() {
@@ -32,6 +43,7 @@ class ResultsViewController: UIViewController {
 
     func setupViews(){
         view.addSubview(cleanButton)
+        view.addSubview(tableView)
     }
     
     func makeCostrains(){
@@ -40,6 +52,12 @@ class ResultsViewController: UIViewController {
             make.leading.equalToSuperview().offset(53)
             make.trailing.equalToSuperview().inset(53)
             make.height.equalTo(63)
+        }
+        
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.leading.trailing.equalToSuperview()
+            make.bottom.equalTo(cleanButton.snp.top)
         }
     }
 }
