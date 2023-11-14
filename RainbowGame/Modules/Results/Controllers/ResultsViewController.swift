@@ -32,7 +32,7 @@ class ResultsViewController: UIViewController {
         return element
     }()
     
-    private let statistick = Source.makeStatistick()
+    private var statistick = Source.makeStatistick()
     
 
     override func viewDidLoad() {
@@ -40,12 +40,17 @@ class ResultsViewController: UIViewController {
 
         view.backgroundColor = .lightGray
         setupViews()
+        setupActions()
         makeCostrains()
     }
 
     func setupViews(){
         view.addSubview(cleanButton)
         view.addSubview(tableView)
+    }
+    
+    func setupActions(){
+        cleanButton.addTarget(self, action: #selector(cleanButtonAction), for: .touchUpInside)
     }
     
     func makeCostrains(){
@@ -62,6 +67,12 @@ class ResultsViewController: UIViewController {
             make.trailing.equalToSuperview().inset(30)
             make.bottom.equalTo(cleanButton.snp.top)
         }
+    }
+    
+    @objc func cleanButtonAction(){
+        statistick.removeAll()
+        tableView.reloadData()
+        print("Нажата кнопка очистить статистику")
     }
 }
 
