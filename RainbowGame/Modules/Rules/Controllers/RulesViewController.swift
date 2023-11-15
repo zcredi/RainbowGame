@@ -95,14 +95,14 @@ final class RulesViewController: UIViewController {
 
     private lazy var leftImage: UIImageView = {
         var leftImage = UIImageView()
-        leftImage.image = UIImage(named: "leftImage")
+        leftImage.image = UIImage(named: "leftImageRulesVC")
         
         return leftImage
     }()
     
     private lazy var rightImage: UIImageView = {
         var rightImage = UIImageView()
-        rightImage.image = UIImage(named: "rightImage")
+        rightImage.image = UIImage(named: "rightImageRulesVC")
         
         return rightImage
     }()
