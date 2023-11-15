@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		846AFF472B02A43900BD0C38 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 846AFF462B02A43900BD0C38 /* SnapKit */; };
+		846AFF502B02AC1C00BD0C38 /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846AFF4F2B02AC1C00BD0C38 /* Source.swift */; };
+		846AFF522B02AC7C00BD0C38 /* StatistickCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846AFF512B02AC7C00BD0C38 /* StatistickCell.swift */; };
 		865B48682B024E5A00EE81AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865B48672B024E5A00EE81AA /* AppDelegate.swift */; };
 		865B486A2B024E5A00EE81AA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865B48692B024E5A00EE81AA /* SceneDelegate.swift */; };
 		865B48712B024E5B00EE81AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 865B48702B024E5B00EE81AA /* Assets.xcassets */; };
@@ -22,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		846AFF4F2B02AC1C00BD0C38 /* Source.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Source.swift; sourceTree = "<group>"; };
+		846AFF512B02AC7C00BD0C38 /* StatistickCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatistickCell.swift; sourceTree = "<group>"; };
 		865B48642B024E5A00EE81AA /* RainbowGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RainbowGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		865B48672B024E5A00EE81AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		865B48692B024E5A00EE81AA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,12 +48,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				846AFF472B02A43900BD0C38 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		846AFF4B2B02AB1200BD0C38 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				846AFF4F2B02AC1C00BD0C38 /* Source.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		846AFF4E2B02ABE100BD0C38 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				846AFF512B02AC7C00BD0C38 /* StatistickCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		865B485B2B024E5A00EE81AA = {
 			isa = PBXGroup;
 			children = (
@@ -129,8 +151,8 @@
 		865B48802B02575A00EE81AA /* Results */ = {
 			isa = PBXGroup;
 			children = (
-				865B488F2B02581C00EE81AA /* Models */,
-				865B488E2B02581A00EE81AA /* Views */,
+				846AFF4E2B02ABE100BD0C38 /* Views */,
+				846AFF4B2B02AB1200BD0C38 /* Models */,
 				865B488D2B02581800EE81AA /* Controllers */,
 			);
 			path = Results;
@@ -241,20 +263,6 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		865B488E2B02581A00EE81AA /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		865B488F2B02581C00EE81AA /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		865B48902B02581F00EE81AA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,6 +309,9 @@
 			dependencies = (
 			);
 			name = RainbowGame;
+			packageProductDependencies = (
+				846AFF462B02A43900BD0C38 /* SnapKit */,
+			);
 			productName = RainbowGame;
 			productReference = 865B48642B024E5A00EE81AA /* RainbowGame.app */;
 			productType = "com.apple.product-type.application";
@@ -329,6 +340,9 @@
 				Base,
 			);
 			mainGroup = 865B485B2B024E5A00EE81AA;
+			packageReferences = (
+				846AFF452B02A43900BD0C38 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 865B48652B024E5A00EE81AA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -359,9 +373,11 @@
 				865B489C2B025DFC00EE81AA /* MainViewController.swift in Sources */,
 				AF60FCF52B03ADE200CEBB06 /* MainView.swift in Sources */,
 				865B48982B025DC800EE81AA /* UILabel+App.swift in Sources */,
+				846AFF522B02AC7C00BD0C38 /* StatistickCell.swift in Sources */,
 				865B48A42B025E3300EE81AA /* SettingsViewController.swift in Sources */,
 				865B48A22B025E2900EE81AA /* ResultsViewController.swift in Sources */,
 				865B48A02B025E1C00EE81AA /* RulesViewController.swift in Sources */,
+				846AFF502B02AC1C00BD0C38 /* Source.swift in Sources */,
 				865B489E2B025E0E00EE81AA /* GameViewController.swift in Sources */,
 				865B48682B024E5A00EE81AA /* AppDelegate.swift in Sources */,
 				865B486A2B024E5A00EE81AA /* SceneDelegate.swift in Sources */,
@@ -580,6 +596,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		846AFF452B02A43900BD0C38 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		846AFF462B02A43900BD0C38 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 846AFF452B02A43900BD0C38 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 865B485C2B024E5A00EE81AA /* Project object */;
 }
