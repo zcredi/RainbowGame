@@ -17,6 +17,8 @@
 		865B48A02B025E1C00EE81AA /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865B489F2B025E1C00EE81AA /* RulesViewController.swift */; };
 		865B48A22B025E2900EE81AA /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865B48A12B025E2900EE81AA /* ResultsViewController.swift */; };
 		865B48A42B025E3300EE81AA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865B48A32B025E3300EE81AA /* SettingsViewController.swift */; };
+		AF60FCF52B03ADE200CEBB06 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF60FCF42B03ADE200CEBB06 /* MainView.swift */; };
+		AFE37A062B04C1BB006A2C43 /* CormorantInfant-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AFE379FC2B04C1BA006A2C43 /* CormorantInfant-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		865B489F2B025E1C00EE81AA /* RulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
 		865B48A12B025E2900EE81AA /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		865B48A32B025E3300EE81AA /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		AF60FCF42B03ADE200CEBB06 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		AFE379FC2B04C1BA006A2C43 /* CormorantInfant-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "CormorantInfant-Regular.ttf"; path = "../../../../../Downloads/Cormorant_Infant/CormorantInfant-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,7 @@
 		865B487D2B0256EF00EE81AA /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				AFE379F92B04C157006A2C43 /* Fonts */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -172,6 +177,7 @@
 		865B48852B0257D800EE81AA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AF60FCF42B03ADE200CEBB06 /* MainView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -271,6 +277,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		AFE379F92B04C157006A2C43 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				AFE379FC2B04C1BA006A2C43 /* CormorantInfant-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -331,6 +345,7 @@
 			files = (
 				865B48742B024E5B00EE81AA /* LaunchScreen.storyboard in Resources */,
 				865B48712B024E5B00EE81AA /* Assets.xcassets in Resources */,
+				AFE37A062B04C1BB006A2C43 /* CormorantInfant-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +357,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				865B489C2B025DFC00EE81AA /* MainViewController.swift in Sources */,
+				AF60FCF52B03ADE200CEBB06 /* MainView.swift in Sources */,
 				865B48982B025DC800EE81AA /* UILabel+App.swift in Sources */,
 				865B48A42B025E3300EE81AA /* SettingsViewController.swift in Sources */,
 				865B48A22B025E2900EE81AA /* ResultsViewController.swift in Sources */,
@@ -492,7 +508,6 @@
 				INFOPLIST_FILE = RainbowGame/Application/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -524,7 +539,6 @@
 				INFOPLIST_FILE = RainbowGame/Application/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
