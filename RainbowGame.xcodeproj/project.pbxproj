@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		846AFF472B02A43900BD0C38 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 846AFF462B02A43900BD0C38 /* SnapKit */; };
+		846AFF502B02AC1C00BD0C38 /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846AFF4F2B02AC1C00BD0C38 /* Source.swift */; };
+		846AFF522B02AC7C00BD0C38 /* StatistickCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846AFF512B02AC7C00BD0C38 /* StatistickCell.swift */; };
 		865B48682B024E5A00EE81AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865B48672B024E5A00EE81AA /* AppDelegate.swift */; };
 		865B486A2B024E5A00EE81AA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865B48692B024E5A00EE81AA /* SceneDelegate.swift */; };
 		865B48712B024E5B00EE81AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 865B48702B024E5B00EE81AA /* Assets.xcassets */; };
@@ -17,9 +20,13 @@
 		865B48A02B025E1C00EE81AA /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865B489F2B025E1C00EE81AA /* RulesViewController.swift */; };
 		865B48A22B025E2900EE81AA /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865B48A12B025E2900EE81AA /* ResultsViewController.swift */; };
 		865B48A42B025E3300EE81AA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865B48A32B025E3300EE81AA /* SettingsViewController.swift */; };
+		AF60FCF52B03ADE200CEBB06 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF60FCF42B03ADE200CEBB06 /* MainView.swift */; };
+		AFE37A062B04C1BB006A2C43 /* CormorantInfant-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AFE379FC2B04C1BA006A2C43 /* CormorantInfant-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		846AFF4F2B02AC1C00BD0C38 /* Source.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Source.swift; sourceTree = "<group>"; };
+		846AFF512B02AC7C00BD0C38 /* StatistickCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatistickCell.swift; sourceTree = "<group>"; };
 		865B48642B024E5A00EE81AA /* RainbowGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RainbowGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		865B48672B024E5A00EE81AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		865B48692B024E5A00EE81AA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -32,6 +39,8 @@
 		865B489F2B025E1C00EE81AA /* RulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
 		865B48A12B025E2900EE81AA /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		865B48A32B025E3300EE81AA /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		AF60FCF42B03ADE200CEBB06 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		AFE379FC2B04C1BA006A2C43 /* CormorantInfant-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "CormorantInfant-Regular.ttf"; path = "../../../../../Downloads/Cormorant_Infant/CormorantInfant-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,12 +48,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				846AFF472B02A43900BD0C38 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		846AFF4B2B02AB1200BD0C38 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				846AFF4F2B02AC1C00BD0C38 /* Source.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		846AFF4E2B02ABE100BD0C38 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				846AFF512B02AC7C00BD0C38 /* StatistickCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		865B485B2B024E5A00EE81AA = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +125,7 @@
 		865B487D2B0256EF00EE81AA /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				AFE379F92B04C157006A2C43 /* Fonts */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -124,8 +151,8 @@
 		865B48802B02575A00EE81AA /* Results */ = {
 			isa = PBXGroup;
 			children = (
-				865B488F2B02581C00EE81AA /* Models */,
-				865B488E2B02581A00EE81AA /* Views */,
+				846AFF4E2B02ABE100BD0C38 /* Views */,
+				846AFF4B2B02AB1200BD0C38 /* Models */,
 				865B488D2B02581800EE81AA /* Controllers */,
 			);
 			path = Results;
@@ -172,6 +199,7 @@
 		865B48852B0257D800EE81AA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AF60FCF42B03ADE200CEBB06 /* MainView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -235,20 +263,6 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		865B488E2B02581A00EE81AA /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		865B488F2B02581C00EE81AA /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		865B48902B02581F00EE81AA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,6 +285,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		AFE379F92B04C157006A2C43 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				AFE379FC2B04C1BA006A2C43 /* CormorantInfant-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -287,6 +309,9 @@
 			dependencies = (
 			);
 			name = RainbowGame;
+			packageProductDependencies = (
+				846AFF462B02A43900BD0C38 /* SnapKit */,
+			);
 			productName = RainbowGame;
 			productReference = 865B48642B024E5A00EE81AA /* RainbowGame.app */;
 			productType = "com.apple.product-type.application";
@@ -299,7 +324,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					865B48632B024E5A00EE81AA = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -315,6 +340,9 @@
 				Base,
 			);
 			mainGroup = 865B485B2B024E5A00EE81AA;
+			packageReferences = (
+				846AFF452B02A43900BD0C38 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 865B48652B024E5A00EE81AA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -331,6 +359,7 @@
 			files = (
 				865B48742B024E5B00EE81AA /* LaunchScreen.storyboard in Resources */,
 				865B48712B024E5B00EE81AA /* Assets.xcassets in Resources */,
+				AFE37A062B04C1BB006A2C43 /* CormorantInfant-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,10 +371,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				865B489C2B025DFC00EE81AA /* MainViewController.swift in Sources */,
+				AF60FCF52B03ADE200CEBB06 /* MainView.swift in Sources */,
 				865B48982B025DC800EE81AA /* UILabel+App.swift in Sources */,
+				846AFF522B02AC7C00BD0C38 /* StatistickCell.swift in Sources */,
 				865B48A42B025E3300EE81AA /* SettingsViewController.swift in Sources */,
 				865B48A22B025E2900EE81AA /* ResultsViewController.swift in Sources */,
 				865B48A02B025E1C00EE81AA /* RulesViewController.swift in Sources */,
+				846AFF502B02AC1C00BD0C38 /* Source.swift in Sources */,
 				865B489E2B025E0E00EE81AA /* GameViewController.swift in Sources */,
 				865B48682B024E5A00EE81AA /* AppDelegate.swift in Sources */,
 				865B486A2B024E5A00EE81AA /* SceneDelegate.swift in Sources */,
@@ -370,6 +402,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -402,6 +435,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -430,6 +464,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -462,6 +497,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -564,6 +600,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		846AFF452B02A43900BD0C38 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		846AFF462B02A43900BD0C38 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 846AFF452B02A43900BD0C38 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 865B485C2B024E5A00EE81AA /* Project object */;
 }
