@@ -10,13 +10,13 @@ import UIKit
 class GameViewController: UIViewController {
     
     
-    var gameModel = GameModel(timerCounting: false)
+    var gameModel = GameModel()
     let boundsx = UIScreen.main.bounds.width
     let boundsy = UIScreen.main.bounds.height
     
     var timer = Timer()
     var timer2 = Timer()
-    let rc = ResultsViewController()
+    let resultController = ResultsViewController()
     
     let config = UIImage.SymbolConfiguration(pointSize: 20)
     
@@ -31,7 +31,7 @@ class GameViewController: UIViewController {
     }
  
     private func setView() {
-        view.backgroundColor = .systemGray6
+        view.backgroundColor = .systemGray4
     }
     
     private func createTimer() {
@@ -62,6 +62,8 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        gameModel.setValue()
         gameModel.time = gameModel.timeOfGame * 60
         setUpNavigation()
         setView()
@@ -155,10 +157,9 @@ class GameViewController: UIViewController {
         timer2.invalidate()
         gameModel.time = gameModel.timeOfGame
         
-        //        self.navigationController?.pushViewController(rc, animated: true)
     }
     @objc func goToResult() {
-        self.navigationController?.pushViewController(rc, animated: true)
+        self.navigationController?.pushViewController(resultController, animated: true)
     }
 }
 
