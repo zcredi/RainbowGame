@@ -8,113 +8,30 @@
 import UIKit
 
 class GameViewController: UIViewController {
-    let backButtonPic = UIImage(named: "backButton")
-    let pauseButtonPic = UIImage(named: "pauseButton")
+    
+    
+    var gameModel = GameModel(timerCounting: false)
+    let boundsx = UIScreen.main.bounds.width
+    let boundsy = UIScreen.main.bounds.height
+    
     var timer = Timer()
+    var timer2 = Timer()
+    let rc = ResultsViewController()
     
-    let wordOfGame = ["красный", "оранжевый", "жёлтый", "зелёный", "голубой", "синий", "фиолетовый"]
-    let colorsOfGame = [UIColor.red, UIColor.orange, UIColor.systemYellow, UIColor.systemGreen, UIColor.systemBlue, UIColor.blue, UIColor.purple]
+    let config = UIImage.SymbolConfiguration(pointSize: 20)
     
-    private lazy var textWithoutBackground: UILabel = {
-        var label = UILabel()
-        label.text = "красный" //
-//MARK: функция модели получить рандомное слово
-        label.numberOfLines = 0
-        label.textColor = colorsOfGame.randomElement()
-//MARK: функция модели получить рандомный цвет
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.boldSystemFont(ofSize: 20)
+    private func setUpNavigation() {
         
-        return label
-    }()
-    
-    private lazy var textWithBackground: UILabel = {
-        var label = UILabel()
-        label.text = "красный"
-//MARK: функция модели получить рандомное слово
-        label.numberOfLines = 0
-        label.textColor = UIColor.white
-        label.layer.cornerRadius = 10
-        label.layer.masksToBounds = true
-        label.backgroundColor = colorsOfGame.randomElement()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.boldSystemFont(ofSize: 20)
-        
-        return label
-    }()
-    
-    
-    private lazy var backButton: UIButton = {
-        var button = UIButton(type: .custom)
-        button.setImage(backButtonPic, for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        
-        return button
-    }()
-    
-    var time = 65
-    
-    private lazy var labelTimer: UILabel = {
-        var label = UILabel()
-        label.text = "\(makeTimeString(seconds: time))"
-        label.numberOfLines = 0
-        label.textColor = .black
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.monospacedSystemFont(ofSize: 30, weight: UIFont.Weight.regular)
-        // такой шрифт чтоб таймер не дергался при обновлении когда цифры имеют разную ширину
-        
-        return label
-    }()
-    
-    private lazy var pauseButton: UIButton = {
-        var button = UIButton(type: .custom)
-        button.setImage(pauseButtonPic, for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        
-        return button
-    }()
-
+        self.navigationController!.navigationBar.titleTextAttributes = [
+            .font: UIFont.monospacedSystemFont(ofSize: 36, weight: UIFont.Weight.black)]
+//        self.navigationController?.navigationBar.topItem?.title = [
+//            .font: UIFont.monospacedSystemFont(ofSize: 20, weight: UIFont.Weight.regular)]
+        navigationItem.title = "\(makeTimeString(seconds: gameModel.time))"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: gameModel.timerCounting ? "play.fill" : "pause.fill", withConfiguration: config), style: .plain, target: self, action: #selector(startStopTapped))
+    }
+ 
     private func setView() {
-        view.backgroundColor = UIColor.systemGray5
-    }
-    
-    private func setupBackButton() {
-        backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
-        backButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
-
-        //backButton.addTarget(self, action: #selector(), for: .touchUpInside)
-    }
-    
-    func setupLabelTimer() {
-        labelTimer.textAlignment = .center
-        labelTimer.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
-        labelTimer.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        labelTimer.leadingAnchor.constraint(equalTo: backButton.trailingAnchor).isActive = true
-        labelTimer.trailingAnchor.constraint(equalTo: pauseButton.leadingAnchor).isActive = true
-        labelTimer.bottomAnchor.constraint(equalTo: backButton.bottomAnchor).isActive = true
-    }
-    
-    private func setupPauseButton() {
-        pauseButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
-        pauseButton.bottomAnchor.constraint(equalTo: backButton.bottomAnchor).isActive = true
-        pauseButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
-        pauseButton.addTarget(self, action: #selector(deleteTimer), for: .touchUpInside)
-    }
-    
-    private func setupLabelText1() {
-        textWithoutBackground.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50).isActive = true
-        textWithoutBackground.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-//        textWithBackground.leadingAnchor.constraint(equalTo: backButton.trailingAnchor).isActive = true
-//        textWithBackground.trailingAnchor.constraint(equalTo: pauseButton.leadingAnchor).isActive = true
-       
-    }
-    private func setupLabelText2() {
-        textWithBackground.textAlignment = .center
-        textWithBackground.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 90).isActive = true
-        textWithBackground.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        textWithBackground.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        textWithBackground.widthAnchor.constraint(equalToConstant: 205).isActive = true
-        
+        view.backgroundColor = .systemGray6
     }
     
     private func createTimer() {
@@ -125,33 +42,87 @@ class GameViewController: UIViewController {
             userInfo: nil,
             repeats: true)
     }
-    @objc private func deleteTimer() {
-        timer.invalidate()
+    
+    @objc private func startStopTapped() {
+        if(gameModel.timerCounting) {
+            gameModel.timerCounting = false
+            timer.invalidate()
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "play.fill" ), style: .plain, target: self, action: #selector(startStopTapped))
+//            setUpNavigation()
+        } else {
+            gameModel.timerCounting = true
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "pause.fill" ), style: .plain, target: self, action: #selector(startStopTapped))
+//            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: gameModel.timerCounting ? "play.fill" : "pause.fill", withConfiguration: config))
+            timer = Timer.scheduledTimer(
+                timeInterval: 1,
+                target: self,
+                selector: #selector(tickTimer),
+                userInfo: nil,
+                repeats: true)
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
-        view.addSubview(backButton)
-        view.addSubview(labelTimer)
-        view.addSubview(pauseButton)
-        view.addSubview(textWithoutBackground)
-        view.addSubview(textWithBackground)
-        
-        
-        
+        gameModel.time = gameModel.timeOfGame * 60
+        setUpNavigation()
         setView()
-        setupBackButton()
-        setupLabelTimer()
-        setupPauseButton()
-        setupLabelText1()
-        setupLabelText2()
     }
+    
+    func goTimer() {
+        timer2 = Timer.scheduledTimer(timeInterval: gameModel.timeInterval, target: self, selector: #selector(pokazSlov), userInfo: nil, repeats: true)
+    }
+    
+    @objc func pokazSlov() {
+        let i = gameModel.wordNumber
+        if gameModel.timerCounting {
+            let word = makeText(i)
+            view.addSubview(word)
+            setupWord(label: word, index: i)
+            DispatchQueue.main.asyncAfter(deadline: .now() + gameModel.timeInterval) {
+                self.removeView(view: word)
+            }
+            if gameModel.wordNumber < 6 {
+                gameModel.wordNumber += 1
+            } else {
+                gameModel.wordNumber = 0
+            }
+        }
+    }
+    
+    func removeView(view: UIView){
+        view.removeFromSuperview()
+    }
+    
+    func makeText(_ i : Int) -> UILabel {
+        let label = UILabel()
+        label.text = gameModel.getWord(i) //
+        //MARK: функция модели получить рандомное слово
+        label.textColor = gameModel.getColor(i)
+        label.numberOfLines = 0
+        label.backgroundColor = gameModel.getBackgroundColor(i)
+        label.layer.cornerRadius = CGFloat(Int(boundsy / 15)/2)
+        label.layer.masksToBounds = true
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.boldSystemFont( ofSize: gameModel.backgroundForText ? CGFloat(Int(boundsy / 15)/2) : CGFloat(Int(boundsy / 25)) )
+        return label
+    }
+    
+    func setupWord(label: UILabel, index: Int) {
+        label.topAnchor.constraint(equalTo: view.topAnchor, constant: CGFloat(CGFloat(Int(boundsy / 4)) + CGFloat((Int(boundsx) / 5) * index))).isActive = true
+        label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat(Int.random(in: 0...Int(boundsx/2.6)))).isActive = true
+        label.textAlignment = .center
+        label.heightAnchor.constraint(equalToConstant: CGFloat(Int(boundsy / 15))).isActive = true
+        label.widthAnchor.constraint(equalToConstant: CGFloat(Int(boundsy / 4))).isActive = true
+    }
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         createTimer()
+        gameModel.timerCounting = true
+        goTimer()
+        
     }
     func makeTimeString(seconds: Int) -> String {
         var timeString = ""
@@ -162,40 +133,34 @@ class GameViewController: UIViewController {
     }
     
     @objc func tickTimer() {
-        time -= 1
-        textWithBackground.backgroundColor = colorsOfGame.randomElement()
-        if time == 0 {
+        gameModel.time -= 1
+        if gameModel.time == 0 {
             timer.invalidate()
+            timer2.invalidate()
+            goToResult()
         }
-//        makeTimeString(seconds: time)
-        
-        labelTimer.text = "\(makeTimeString(seconds: time))"
-        
-//        var minutes = time / 60
-//        var seconds = time % 60
-//        if minutes > 10 {
-//            if seconds > 10 {
-//                labelTimer.text = "\(minutes):\(seconds)"
-//            } else {
-//                labelTimer.text = "\(minutes):0\(seconds)"
-//            }} else {
-//                if seconds > 10 {
-//                    labelTimer.text = "0\(minutes):\(seconds)"
-//                } else {
-//                    labelTimer.text = "0\(minutes):0\(seconds)"
-//                }
-//            }
-//        "\(time / 60):\(time % 60)"
+        navigationItem.title = "\(makeTimeString(seconds: gameModel.time))"
     }
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        timer.invalidate()
+        timer2.invalidate()
+        gameModel.time = gameModel.timeOfGame
+        
+        //        self.navigationController?.pushViewController(rc, animated: true)
     }
-    */
-
+    @objc func goToResult() {
+        self.navigationController?.pushViewController(rc, animated: true)
+    }
 }
+
