@@ -75,6 +75,8 @@ class ResultsViewController: UIViewController {
         
         self.statistick = Source.getArrayToUserDefaults()
         
+        lastUIController()
+        
         if statistick.isEmpty {
             viewForEmptyValue.isHidden = false
             cleanButton.isHidden = true
@@ -135,6 +137,25 @@ class ResultsViewController: UIViewController {
         }
     }
     
+    func lastUIController(){
+        if let navigationController = self.navigationController {
+
+            let viewControllers = navigationController.viewControllers
+            
+            if viewControllers.count >= 2 {
+                let previousViewController = viewControllers[viewControllers.count - 2]
+                print("Предыдущий экран: \(previousViewController)")
+                let lastContr = "\(previousViewController)"
+                if lastContr.contains("GameViewController"){
+                    let backButton = UIBarButtonItem(image: UIImage(systemName: "arrowshape.left.fill")?.withTintColor(.black), style: .plain, target: self, action: #selector(backButtonTapped))
+                    navigationItem.leftBarButtonItem = backButton
+                }
+            } else {
+                print("Нет предыдущего экрана")
+            }
+        }
+    }
+    
     //MARK: - objc func
     @objc func cleanButtonAction(){
         statistick.removeAll()
@@ -143,6 +164,16 @@ class ResultsViewController: UIViewController {
         print("Нажата кнопка очистить статистику")
         cleanButton.isHidden = true
         viewForEmptyValue.isHidden = false
+    }
+    
+    @objc func backButtonTapped(){
+        if let navigationController = self.navigationController{
+            let viewControllers = navigationController.viewControllers
+            let previousViewController = viewControllers[viewControllers.count - 3]
+            
+            let vc = previousViewController
+            navigationController.popToViewController(vc, animated: true)
+        }
     }
 }
 
