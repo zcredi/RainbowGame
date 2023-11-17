@@ -1,4 +1,3 @@
-//
 //  GameModel.swift
 //  RainbowGame
 //

@@ -48,11 +48,9 @@ class GameViewController: UIViewController {
             gameModel.timerCounting = false
             timer.invalidate()
             navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "play.fill" ), style: .plain, target: self, action: #selector(startStopTapped))
-//            setUpNavigation()
         } else {
             gameModel.timerCounting = true
             navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "pause.fill" ), style: .plain, target: self, action: #selector(startStopTapped))
-//            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: gameModel.timerCounting ? "play.fill" : "pause.fill", withConfiguration: config))
             timer = Timer.scheduledTimer(
                 timeInterval: 1,
                 target: self,
