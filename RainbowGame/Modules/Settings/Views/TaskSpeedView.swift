@@ -26,8 +26,7 @@ class TaskSpeedView: UIView {
     private lazy var taskSpeedSlider: UISlider = {
         let slider = UISlider()
         slider.minimumValue = 1
-        slider.maximumValue = 6
-        slider.value = 3
+        slider.maximumValue = 6        
         slider.tintColor = #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1)
         slider.isContinuous = true
         slider.addTarget(nil, action: #selector(SettingsViewController.taskSpeedSliderChanged), for: .valueChanged)
@@ -35,17 +34,16 @@ class TaskSpeedView: UIView {
     }()
     
     var taskSpeedResultLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
+        let label = UILabel()       
         label.font = .systemFont(ofSize: 20)
-        label.text = "3"
         return label
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+                
         setupViews()
+        setupSettings()
         setConstraints()
     }
     
@@ -57,6 +55,13 @@ class TaskSpeedView: UIView {
         addSubview(taskSpeedLabel)
         addSubview(taskSpeedSlider)
         addSubview(taskSpeedResultLabel)
+    }
+    
+    private func setupSettings() {
+        let settingsManager = SettingsManager()
+        let taskSpeedValue = settingsManager.get(forKey: .taskSpeed) as! Float
+        taskSpeedSlider.value = taskSpeedValue
+        taskSpeedResultLabel.text = String(format: "%.0f", taskSpeedValue)
     }
     
     private func setConstraints() {

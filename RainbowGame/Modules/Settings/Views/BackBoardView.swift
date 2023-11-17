@@ -22,7 +22,7 @@ class BackBoardView: UIView {
     
     private lazy var backBoardSwitch: UISwitch = {
         let toggleSwitch = UISwitch()
-        toggleSwitch.isOn = true
+        toggleSwitch.addTarget(nil, action: #selector(SettingsViewController.backBoardSwitchChanged), for: .valueChanged)
         return toggleSwitch
     }()
     
@@ -30,6 +30,7 @@ class BackBoardView: UIView {
         super.init(frame: frame)
         
         setupViews()
+        setupSettings()
         setConstraints()
     }
     
@@ -40,6 +41,11 @@ class BackBoardView: UIView {
     private func setupViews() {
         addSubview(backBoardLabel)
         addSubview(backBoardSwitch)
+    }
+    
+    private func setupSettings() {
+        let settingsManager = SettingsManager()        
+        backBoardSwitch.isOn = settingsManager.get(forKey: .backBoardShowing) as! Bool
     }
     
     private func setConstraints() {

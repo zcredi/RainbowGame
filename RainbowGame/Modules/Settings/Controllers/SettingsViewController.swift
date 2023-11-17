@@ -47,9 +47,12 @@ class SettingsViewController: UIViewController {
         return stackView
     }()
     
+    private let settingsManager = SettingsManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+                
         setupViews()
         setConstraints()
     }
@@ -60,16 +63,26 @@ class SettingsViewController: UIViewController {
     }
         
     @objc func playTimeSliderChanged(_ sender: UISlider) {
-        sender.setValue(sender.value.rounded(), animated: false)
-        playTimeView.playTimeResultLabel.text = String(format: "%.0f", sender.value)
+        let playTimeRounded = sender.value.rounded()
+        sender.setValue(playTimeRounded, animated: false)
+        settingsManager.set(playTimeRounded, forKey: .playTime)
+        playTimeView.playTimeResultLabel.text = String(format: "%.0f", playTimeRounded)
+        
     }
     
     @objc func taskSpeedSliderChanged(_ sender: UISlider) {
-        sender.setValue(sender.value.rounded(), animated: false)
-        taskSpeedView.taskSpeedResultLabel.text = String(format: "%.0f", sender.value)
+        let taskSpeedRounded = sender.value.rounded()
+        sender.setValue(taskSpeedRounded, animated: false)
+        settingsManager.set(taskSpeedRounded, forKey: .taskSpeed)
+        taskSpeedView.taskSpeedResultLabel.text = String(format: "%.0f", taskSpeedRounded)
+    }
+    
+    @objc func backBoardSwitchChanged(_ sender: UISwitch) {
+        settingsManager.set(sender.isOn, forKey: .backBoardShowing)
     }
     
     private func setConstraints() {
+        
         settingsStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             settingsStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: Constants.commonSideSpacing),
