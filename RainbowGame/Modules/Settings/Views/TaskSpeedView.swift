@@ -19,6 +19,7 @@ class TaskSpeedView: UIView {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15)
         label.text = "скорость смены\nзаданий, сек"
+        label.textColor = .black
         label.numberOfLines = 0
         return label
     }()
@@ -36,6 +37,7 @@ class TaskSpeedView: UIView {
     var taskSpeedResultLabel: UILabel = {
         let label = UILabel()       
         label.font = .systemFont(ofSize: 20)
+        label.textColor = .black
         return label
     }()
     

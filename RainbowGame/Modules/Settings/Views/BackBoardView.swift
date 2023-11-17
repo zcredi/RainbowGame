@@ -9,13 +9,14 @@ import UIKit
 
 class BackBoardView: UIView {
     private enum Constants {
-        static let backBoardLabelSideSpace: CGFloat = 10.0
+        static let backBoardLabelSideSpace: CGFloat = 5.0
         static let backBoardSwitchTrailingSpace: CGFloat = -10.0
     }
     
     private lazy var backBoardLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15)
+        label.textColor = .black
         label.text = "подложка для букв"
         return label
     }()

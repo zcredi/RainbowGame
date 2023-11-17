@@ -58,7 +58,7 @@ class SettingsViewController: UIViewController {
     }
     
     private func setupViews() {
-        view.backgroundColor = #colorLiteral(red: 0.7994344831, green: 0.7994344831, blue: 0.7994344831, alpha: 1)        
+        view.backgroundColor = .systemGray6
         view.addSubview(settingsStackView)
     }
         
