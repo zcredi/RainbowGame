@@ -20,8 +20,12 @@
 		865B48A02B025E1C00EE81AA /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865B489F2B025E1C00EE81AA /* RulesViewController.swift */; };
 		865B48A22B025E2900EE81AA /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865B48A12B025E2900EE81AA /* ResultsViewController.swift */; };
 		865B48A42B025E3300EE81AA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865B48A32B025E3300EE81AA /* SettingsViewController.swift */; };
+		86EAB0B42B07A6370068C97A /* TaskSpeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EAB0B12B07A6370068C97A /* TaskSpeedView.swift */; };
+		86EAB0B52B07A6370068C97A /* BackBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EAB0B22B07A6370068C97A /* BackBoardView.swift */; };
+		86EAB0B62B07A6370068C97A /* PlayTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EAB0B32B07A6370068C97A /* PlayTimeView.swift */; };
+		86EAB0B82B07A6510068C97A /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EAB0B72B07A6510068C97A /* SettingsManager.swift */; };
+		86EAB0BD2B07A7300068C97A /* CormorantInfant-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86EAB0BC2B07A7300068C97A /* CormorantInfant-Regular.ttf */; };
 		AF60FCF52B03ADE200CEBB06 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF60FCF42B03ADE200CEBB06 /* MainView.swift */; };
-		AFE37A062B04C1BB006A2C43 /* CormorantInfant-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AFE379FC2B04C1BA006A2C43 /* CormorantInfant-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,8 +43,12 @@
 		865B489F2B025E1C00EE81AA /* RulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
 		865B48A12B025E2900EE81AA /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		865B48A32B025E3300EE81AA /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		86EAB0B12B07A6370068C97A /* TaskSpeedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskSpeedView.swift; sourceTree = "<group>"; };
+		86EAB0B22B07A6370068C97A /* BackBoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackBoardView.swift; sourceTree = "<group>"; };
+		86EAB0B32B07A6370068C97A /* PlayTimeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayTimeView.swift; sourceTree = "<group>"; };
+		86EAB0B72B07A6510068C97A /* SettingsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
+		86EAB0BC2B07A7300068C97A /* CormorantInfant-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CormorantInfant-Regular.ttf"; sourceTree = "<group>"; };
 		AF60FCF42B03ADE200CEBB06 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		AFE379FC2B04C1BA006A2C43 /* CormorantInfant-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "CormorantInfant-Regular.ttf"; path = "../../../../../Downloads/Cormorant_Infant/CormorantInfant-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -274,6 +282,9 @@
 		865B48912B02582100EE81AA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				86EAB0B22B07A6370068C97A /* BackBoardView.swift */,
+				86EAB0B32B07A6370068C97A /* PlayTimeView.swift */,
+				86EAB0B12B07A6370068C97A /* TaskSpeedView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -281,6 +292,7 @@
 		865B48922B02582200EE81AA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				86EAB0B72B07A6510068C97A /* SettingsManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -288,7 +300,7 @@
 		AFE379F92B04C157006A2C43 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				AFE379FC2B04C1BA006A2C43 /* CormorantInfant-Regular.ttf */,
+				86EAB0BC2B07A7300068C97A /* CormorantInfant-Regular.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -357,9 +369,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86EAB0BD2B07A7300068C97A /* CormorantInfant-Regular.ttf in Resources */,
 				865B48742B024E5B00EE81AA /* LaunchScreen.storyboard in Resources */,
 				865B48712B024E5B00EE81AA /* Assets.xcassets in Resources */,
-				AFE37A062B04C1BB006A2C43 /* CormorantInfant-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,10 +387,14 @@
 				865B48982B025DC800EE81AA /* UILabel+App.swift in Sources */,
 				846AFF522B02AC7C00BD0C38 /* StatistickCell.swift in Sources */,
 				865B48A42B025E3300EE81AA /* SettingsViewController.swift in Sources */,
+				86EAB0B52B07A6370068C97A /* BackBoardView.swift in Sources */,
+				86EAB0B42B07A6370068C97A /* TaskSpeedView.swift in Sources */,
 				865B48A22B025E2900EE81AA /* ResultsViewController.swift in Sources */,
 				865B48A02B025E1C00EE81AA /* RulesViewController.swift in Sources */,
 				846AFF502B02AC1C00BD0C38 /* Source.swift in Sources */,
 				865B489E2B025E0E00EE81AA /* GameViewController.swift in Sources */,
+				86EAB0B82B07A6510068C97A /* SettingsManager.swift in Sources */,
+				86EAB0B62B07A6370068C97A /* PlayTimeView.swift in Sources */,
 				865B48682B024E5A00EE81AA /* AppDelegate.swift in Sources */,
 				865B486A2B024E5A00EE81AA /* SceneDelegate.swift in Sources */,
 			);
