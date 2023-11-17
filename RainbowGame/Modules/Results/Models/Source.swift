@@ -7,18 +7,49 @@
 
 import UIKit
 
-struct Statistick{
+struct Statistick: Codable{
     let gameNomer: String
     let time:String
 }
 
 struct Source{
-    static func makeStatistick() -> [Statistick]{
-        [
-            .init(gameNomer: "1", time: "21.0"),
-            .init(gameNomer: "2", time: "5.0"),
-            .init(gameNomer: "3", time: "13.0"),
-            .init(gameNomer: "4", time: "11.0"),
-        ]
+   static func uploadArrayToUserDefaults(startTimeTimer:Int){
+        var defaults = UserDefaults.standard
+        do {
+            if var statistickArray = defaults.object(forKey: "StatistickArray") as? [Data] {
+                let newStatistick = Statistick(gameNomer: "\(statistickArray.count + 1)", time: "\(startTimeTimer)")
+                let encoder = JSONEncoder()
+                if let encoded = try? encoder.encode(newStatistick) {
+                    statistickArray.append(encoded)
+                    print(statistickArray)
+                    defaults.set(statistickArray, forKey: "StatistickArray")
+                }
+            } else {
+                var statistickArray: [Data] = []
+                let newStatistick = Statistick(gameNomer: "1", time: "\(startTimeTimer)")
+                let encoder = JSONEncoder()
+                if let encoded = try? encoder.encode(newStatistick) {
+                    statistickArray.append(encoded)
+                    print(statistickArray)
+                    defaults.set(statistickArray, forKey: "StatistickArray")
+                }
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+   static func getArrayToUserDefaults()->[Statistick]{
+        var defaults = UserDefaults.standard
+        do {
+            if let savedData = defaults.object(forKey: "StatistickArray") as? [Data] {
+                let decoder = JSONDecoder()
+                let statistickArray = try savedData.map { try decoder.decode(Statistick.self, from: $0) }
+                return statistickArray
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+        return []
     }
 }
