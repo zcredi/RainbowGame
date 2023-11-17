@@ -179,7 +179,7 @@
 		865B48822B02575E00EE81AA /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				865B48892B0257E300EE81AA /* Models */,
+				AAE591332B0682FC008761E1 /* Models */,
 				865B48882B0257E200EE81AA /* Views */,
 				865B48872B0257E000EE81AA /* Controllers */,
 			);
@@ -234,13 +234,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		865B48892B0257E300EE81AA /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		865B488A2B0257E500EE81AA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,6 +286,14 @@
 			isa = PBXGroup;
 			children = (
 				86EAB0B72B07A6510068C97A /* SettingsManager.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AAE591332B0682FC008761E1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AAE591342B06831F008761E1 /* GameModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -383,6 +384,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				865B489C2B025DFC00EE81AA /* MainViewController.swift in Sources */,
+				AAE591352B06831F008761E1 /* GameModel.swift in Sources */,
 				AF60FCF52B03ADE200CEBB06 /* MainView.swift in Sources */,
 				865B48982B025DC800EE81AA /* UILabel+App.swift in Sources */,
 				846AFF522B02AC7C00BD0C38 /* StatistickCell.swift in Sources */,
