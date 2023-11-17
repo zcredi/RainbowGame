@@ -24,14 +24,12 @@ class GameViewController: UIViewController {
         
         self.navigationController!.navigationBar.titleTextAttributes = [
             .font: UIFont.monospacedSystemFont(ofSize: 36, weight: UIFont.Weight.black)]
-//        self.navigationController?.navigationBar.topItem?.title = [
-//            .font: UIFont.monospacedSystemFont(ofSize: 20, weight: UIFont.Weight.regular)]
         navigationItem.title = "\(makeTimeString(seconds: gameModel.time))"
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: gameModel.timerCounting ? "play.fill" : "pause.fill", withConfiguration: config), style: .plain, target: self, action: #selector(startStopTapped))
     }
- 
+    
     private func setView() {
-        view.backgroundColor = .systemGray4
+        view.backgroundColor = .systemGray6
     }
     
     private func createTimer() {
@@ -142,15 +140,6 @@ class GameViewController: UIViewController {
         navigationItem.title = "\(makeTimeString(seconds: gameModel.time))"
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         timer.invalidate()
