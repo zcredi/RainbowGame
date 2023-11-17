@@ -26,7 +26,6 @@ class PlayTimeView: UIView {
         let slider = UISlider()
         slider.minimumValue = 1
         slider.maximumValue = 10
-        slider.value = 5
         slider.tintColor = #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1)
         slider.isContinuous = true
         slider.addTarget(nil, action: #selector(SettingsViewController.playTimeSliderChanged), for: .valueChanged)
@@ -36,7 +35,6 @@ class PlayTimeView: UIView {
     lazy var playTimeResultLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 20)
-        label.text = "5"
         return label
     }()
     
@@ -44,6 +42,7 @@ class PlayTimeView: UIView {
         super.init(frame: frame)
         
         setupViews()
+        setupSettings()
         setConstraints()
     }
     
@@ -55,6 +54,13 @@ class PlayTimeView: UIView {
         addSubview(playTimeLabel)
         addSubview(playTimeSlider)
         addSubview(playTimeResultLabel)
+    }
+    
+    private func setupSettings() {
+        let settingsManager = SettingsManager()
+        let playTimeValue = settingsManager.get(forKey: .playTime) as! Float
+        playTimeSlider.value = playTimeValue
+        playTimeResultLabel.text = String(format: "%.0f", playTimeValue)        
     }
     
     private func setConstraints() {
