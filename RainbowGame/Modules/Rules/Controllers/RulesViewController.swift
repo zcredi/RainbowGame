@@ -110,8 +110,11 @@ final class RulesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Помощь"
         setUpViews()
         setConstraints()
+        backButton.isHidden = true
+        helpLabel.isHidden = true
     }
     
     private func setUpViews() {
