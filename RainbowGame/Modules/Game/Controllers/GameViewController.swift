@@ -148,6 +148,7 @@ class GameViewController: UIViewController {
         
     }
     @objc func goToResult() {
+        Source.uploadArrayToUserDefaults(startTimeTimer: Double(gameModel.timeOfGame * 60))
         self.navigationController?.pushViewController(resultController, animated: true)
     }
 }
