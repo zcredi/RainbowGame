@@ -64,7 +64,7 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        gameModel.time = gameModel.timeOfGame * 60
+        gameModel.time = getTimeForContinue()
         setUpNavigation()
         setView()
     }
@@ -153,6 +153,7 @@ class GameViewController: UIViewController {
      */
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
+        UserDefaults.standard.set(gameModel.time, forKey: "timerForContinue")
         timer.invalidate()
         timer2.invalidate()
         gameModel.time = gameModel.timeOfGame
@@ -161,6 +162,17 @@ class GameViewController: UIViewController {
     }
     @objc func goToResult() {
         self.navigationController?.pushViewController(rc, animated: true)
+    }
+    
+    private func getTimeForContinue() -> Int {
+        guard let time = UserDefaults.standard.object(forKey: "timerForContinue") as? Int else {
+            return gameModel.timeOfGame * 60
+        }
+        if time == 0 {
+            return gameModel.timeOfGame * 60
+        } else {
+            return time
+        }
     }
 }
 

@@ -26,6 +26,5 @@ class SettingsManager {
     func get(forKey key: Keys) -> Any? {
         userDefaults.object(forKey: key.rawValue) ?? defaultSettings[key]
     }
-    
 }
 

@@ -39,7 +39,7 @@ class MainView: UIView {
         return label
     }()
     
-    private lazy var startButtonGame: UIButton = {
+    lazy var startButtonGame: UIButton = {
         var button = UIButton(type: .system)
         button.backgroundColor = UIColor(named: "startButtonColor")
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -55,7 +55,23 @@ class MainView: UIView {
         return button
     }()
     
-    private lazy var statisticsButtonGame: UIButton = {
+    lazy var resumeButtonGame: UIButton = {
+        var button = UIButton(type: .system)
+        button.backgroundColor = UIColor(named: "resumeButtonColor")
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.cornerRadius = 10
+        button.layer.shadowPath = UIBezierPath(rect: button.bounds).cgPath
+        button.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.08).cgColor
+        button.layer.shadowOpacity = 10
+        button.layer.shadowRadius = 24
+        button.layer.shadowOffset = CGSize(width: 0, height: 2)
+        button.setTitle("Продолжить", for: .normal)
+        button.titleLabel?.font = UIFont(name: "SFPro-Regular", size: 20)
+        button.tintColor = .white
+        return button
+    }()
+    
+    lazy var statisticsButtonGame: UIButton = {
         var button = UIButton(type: .system)
         button.backgroundColor = UIColor(named: "statisticsButtonColor")
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -71,7 +87,7 @@ class MainView: UIView {
         return button
     }()
     
-    private lazy var settingsButtonGame: UIButton = {
+    lazy var settingsButtonGame: UIButton = {
         var button = UIButton(type: .custom)
         button.setImage(UIImage(named: "icon _settings"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -83,7 +99,7 @@ class MainView: UIView {
         return button
     }()
 
-    private lazy var questionsButtonGame: UIButton = {
+    lazy var questionsButtonGame: UIButton = {
         var button = UIButton(type: .custom)
         button.setImage(UIImage(named: "icon _question"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -97,22 +113,23 @@ class MainView: UIView {
 
     init() {
         super.init(frame: CGRect())
-        self.backgroundColor = UIColor(named: "backgroundColor")
+        self.backgroundColor = .systemGray6
         setViews()
         setConstraints()
     }
     
-    func setViews() {
+    private func setViews() {
             addSubview(rainbowView)
             addSubview(descriptionLabelGame)
             addSubview(nameLabelGame)
             addSubview(startButtonGame)
+            addSubview(resumeButtonGame)
             addSubview(statisticsButtonGame)
             addSubview(settingsButtonGame)
             addSubview(questionsButtonGame)
         }
     
-    func setConstraints() {
+    private func setConstraints() {
         NSLayoutConstraint.activate(
             [rainbowView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 72),
              rainbowView.heightAnchor.constraint(equalToConstant: 150),
@@ -131,24 +148,30 @@ class MainView: UIView {
              nameLabelGame.widthAnchor.constraint(equalToConstant: 206),
              nameLabelGame.centerXAnchor.constraint(equalTo: centerXAnchor),
              
-             startButtonGame.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 134.5),
+             startButtonGame.topAnchor.constraint(equalTo: nameLabelGame.bottomAnchor, constant: 10),
              startButtonGame.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 53),
              startButtonGame.heightAnchor.constraint(equalToConstant: 83),
              startButtonGame.widthAnchor.constraint(equalToConstant: 274),
              startButtonGame.centerXAnchor.constraint(equalTo: centerXAnchor),
              
-             statisticsButtonGame.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 237),
+             resumeButtonGame.topAnchor.constraint(equalTo: startButtonGame.bottomAnchor, constant: 16),
+             resumeButtonGame.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 53),
+             resumeButtonGame.heightAnchor.constraint(equalToConstant: 83),
+             resumeButtonGame.widthAnchor.constraint(equalToConstant: 274),
+             resumeButtonGame.centerXAnchor.constraint(equalTo: centerXAnchor),
+             
+             statisticsButtonGame.topAnchor.constraint(equalTo: resumeButtonGame.bottomAnchor, constant: 16),
              statisticsButtonGame.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 52),
              statisticsButtonGame.heightAnchor.constraint(equalToConstant: 83),
              statisticsButtonGame.widthAnchor.constraint(equalToConstant: 274),
              statisticsButtonGame.centerXAnchor.constraint(equalTo: centerXAnchor),
              
-             settingsButtonGame.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -35),
+             settingsButtonGame.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -10),
              settingsButtonGame.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 28),
              settingsButtonGame.heightAnchor.constraint(equalToConstant: 50),
              settingsButtonGame.widthAnchor.constraint(equalToConstant: 50),
              
-             questionsButtonGame.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -35),
+             questionsButtonGame.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -10),
              questionsButtonGame.rightAnchor.constraint(equalTo: rightAnchor, constant: -28),
              questionsButtonGame.heightAnchor.constraint(equalToConstant: 50),
              questionsButtonGame.widthAnchor.constraint(equalToConstant: 50)]
