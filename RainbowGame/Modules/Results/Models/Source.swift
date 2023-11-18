@@ -13,8 +13,8 @@ struct Statistick: Codable{
 }
 
 struct Source{
-   static func uploadArrayToUserDefaults(startTimeTimer:Int){
-        var defaults = UserDefaults.standard
+   static func uploadArrayToUserDefaults(startTimeTimer:Double){
+        let defaults = UserDefaults.standard
         do {
             if var statistickArray = defaults.object(forKey: "StatistickArray") as? [Data] {
                 let newStatistick = Statistick(gameNomer: "\(statistickArray.count + 1)", time: "\(startTimeTimer)")
@@ -40,7 +40,7 @@ struct Source{
     }
     
    static func getArrayToUserDefaults()->[Statistick]{
-        var defaults = UserDefaults.standard
+        let defaults = UserDefaults.standard
         do {
             if let savedData = defaults.object(forKey: "StatistickArray") as? [Data] {
                 let decoder = JSONDecoder()
