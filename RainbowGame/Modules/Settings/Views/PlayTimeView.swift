@@ -19,6 +19,7 @@ class PlayTimeView: UIView {
         let label = UILabel()        
         label.font = .systemFont(ofSize: 15)
         label.text = "время игры, мин"
+        label.textColor = .black
         return label
     }()
     
@@ -35,6 +36,7 @@ class PlayTimeView: UIView {
     lazy var playTimeResultLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 20)
+        label.textColor = .black
         return label
     }()
     
