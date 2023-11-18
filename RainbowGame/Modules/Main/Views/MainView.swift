@@ -39,7 +39,7 @@ class MainView: UIView {
         return label
     }()
     
-    private lazy var startButtonGame: UIButton = {
+    lazy var startButtonGame: UIButton = {
         var button = UIButton(type: .system)
         button.backgroundColor = UIColor(named: "startButtonColor")
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -55,7 +55,7 @@ class MainView: UIView {
         return button
     }()
     
-    private lazy var statisticsButtonGame: UIButton = {
+    lazy var statisticsButtonGame: UIButton = {
         var button = UIButton(type: .system)
         button.backgroundColor = UIColor(named: "statisticsButtonColor")
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -71,7 +71,7 @@ class MainView: UIView {
         return button
     }()
     
-    private lazy var settingsButtonGame: UIButton = {
+    lazy var settingsButtonGame: UIButton = {
         var button = UIButton(type: .custom)
         button.setImage(UIImage(named: "icon _settings"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -83,7 +83,7 @@ class MainView: UIView {
         return button
     }()
 
-    private lazy var questionsButtonGame: UIButton = {
+    lazy var questionsButtonGame: UIButton = {
         var button = UIButton(type: .custom)
         button.setImage(UIImage(named: "icon _question"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
