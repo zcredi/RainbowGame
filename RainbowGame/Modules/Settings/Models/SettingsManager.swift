@@ -15,7 +15,7 @@ class SettingsManager {
         case backBoardShowing = "backBoardShowing"
     }
     
-    private let defaultSettings: [Keys: Any] = [.playTime: Float(5), .taskSpeed: Float(3), .backBoardShowing: true]
+    private let defaultSettings: [Keys: Any] = [.playTime: Int(5), .taskSpeed: Double(3), .backBoardShowing: true]
     
     private let userDefaults = UserDefaults.standard
     

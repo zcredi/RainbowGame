@@ -61,8 +61,8 @@ class TaskSpeedView: UIView {
     
     private func setupSettings() {
         let settingsManager = SettingsManager()
-        let taskSpeedValue = settingsManager.get(forKey: .taskSpeed) as! Float
-        taskSpeedSlider.value = taskSpeedValue
+        let taskSpeedValue = settingsManager.get(forKey: .taskSpeed) as! Double
+        taskSpeedSlider.value = Float(taskSpeedValue)
         taskSpeedResultLabel.text = String(format: "%.0f", taskSpeedValue)
     }
     
