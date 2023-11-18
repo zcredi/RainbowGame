@@ -10,13 +10,13 @@ import UIKit
 class GameViewController: UIViewController {
     
     
-    var gameModel = GameModel(timerCounting: false)
+    var gameModel = GameModel()
     let boundsx = UIScreen.main.bounds.width
     let boundsy = UIScreen.main.bounds.height
     
     var timer = Timer()
     var timer2 = Timer()
-    let rc = ResultsViewController()
+    let resultController = ResultsViewController()
     
     let config = UIImage.SymbolConfiguration(pointSize: 20)
     
@@ -24,12 +24,10 @@ class GameViewController: UIViewController {
         
         self.navigationController!.navigationBar.titleTextAttributes = [
             .font: UIFont.monospacedSystemFont(ofSize: 36, weight: UIFont.Weight.black)]
-//        self.navigationController?.navigationBar.topItem?.title = [
-//            .font: UIFont.monospacedSystemFont(ofSize: 20, weight: UIFont.Weight.regular)]
         navigationItem.title = "\(makeTimeString(seconds: gameModel.time))"
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: gameModel.timerCounting ? "play.fill" : "pause.fill", withConfiguration: config), style: .plain, target: self, action: #selector(startStopTapped))
     }
- 
+    
     private func setView() {
         view.backgroundColor = .systemGray6
     }
@@ -48,11 +46,9 @@ class GameViewController: UIViewController {
             gameModel.timerCounting = false
             timer.invalidate()
             navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "play.fill" ), style: .plain, target: self, action: #selector(startStopTapped))
-//            setUpNavigation()
         } else {
             gameModel.timerCounting = true
             navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "pause.fill" ), style: .plain, target: self, action: #selector(startStopTapped))
-//            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: gameModel.timerCounting ? "play.fill" : "pause.fill", withConfiguration: config))
             timer = Timer.scheduledTimer(
                 timeInterval: 1,
                 target: self,
@@ -64,6 +60,8 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        gameModel.setValue()
         gameModel.time = gameModel.timeOfGame * 60
         setUpNavigation()
         setView()
@@ -142,25 +140,15 @@ class GameViewController: UIViewController {
         navigationItem.title = "\(makeTimeString(seconds: gameModel.time))"
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         timer.invalidate()
         timer2.invalidate()
         gameModel.time = gameModel.timeOfGame
         
-        //        self.navigationController?.pushViewController(rc, animated: true)
     }
     @objc func goToResult() {
-        self.navigationController?.pushViewController(rc, animated: true)
+        self.navigationController?.pushViewController(resultController, animated: true)
     }
 }
 

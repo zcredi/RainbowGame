@@ -1,4 +1,3 @@
-//
 //  GameModel.swift
 //  RainbowGame
 //
@@ -9,12 +8,20 @@ import Foundation
 import UIKit
 
 struct GameModel {
-    var timerCounting: Bool
+    private let settingsManager = SettingsManager()
+    
+    var timerCounting: Bool = false
     var backgroundForText: Bool = true
     var timeOfGame: Int = 1
     var time: Int = 0
     var wordNumber: Int = 0
     var timeInterval: Double = 0.3
+    
+    mutating func setValue(){
+        self.timeOfGame = settingsManager.get(forKey: .playTime) as! Int
+        self.timeInterval = settingsManager.get(forKey: .taskSpeed) as! Double
+        self.backgroundForText = settingsManager.get(forKey: .backBoardShowing) as! Bool
+    }
     
     let colorsOfGame = [UIColor.red, UIColor.orange, UIColor.systemYellow, UIColor.systemGreen, UIColor.systemBlue, UIColor.blue, UIColor.purple].randomElement()!
     
