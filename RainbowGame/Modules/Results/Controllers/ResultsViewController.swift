@@ -115,7 +115,7 @@ class ResultsViewController: UIViewController {
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.leading.equalToSuperview().offset(30)
             make.trailing.equalToSuperview().inset(30)
-            make.bottom.equalTo(cleanButton.snp.top)
+            make.bottom.equalTo(cleanButton.snp.top).offset(-20)
         }
         
         emptyLabelSmaile.snp.makeConstraints { make in
