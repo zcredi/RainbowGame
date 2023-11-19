@@ -16,7 +16,7 @@ class PlayTimeView: UIView {
     }
     
     private lazy var playTimeLabel: UILabel = {
-        let label = UILabel()        
+        let label = UILabel()
         label.font = .systemFont(ofSize: 15)
         label.text = "время игры, мин"
         label.textColor = .black
@@ -59,11 +59,11 @@ class PlayTimeView: UIView {
     }
     
     private func setupSettings() {
-        let settingsManager = SettingsManager()
-        let playTimeValue = settingsManager.get(forKey: .playTime) as! Float
-        playTimeSlider.value = playTimeValue
-        playTimeResultLabel.text = String(format: "%.0f", playTimeValue)        
-    }
+            let settingsManager = SettingsManager()
+            let playTimeValue = settingsManager.get(forKey: .playTime) as! Float
+            playTimeSlider.value = playTimeValue
+            playTimeResultLabel.text = String(format: "%.0f", playTimeValue)
+        }
     
     private func setConstraints() {
         playTimeLabel.translatesAutoresizingMaskIntoConstraints = false

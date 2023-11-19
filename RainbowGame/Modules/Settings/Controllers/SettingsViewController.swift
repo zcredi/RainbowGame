@@ -20,7 +20,7 @@ class SettingsViewController: UIViewController {
     private lazy var playTimeView: PlayTimeView  = {
         let view = PlayTimeView()
         view.backgroundColor = Constants.commonViewBackGroundColor
-        view.layer.cornerRadius = Constants.commonViewCornerRadius        
+        view.layer.cornerRadius = Constants.commonViewCornerRadius
         return view
     }()
     
@@ -87,7 +87,7 @@ class SettingsViewController: UIViewController {
         NSLayoutConstraint.activate([
             settingsStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: Constants.commonSideSpacing),
             settingsStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -Constants.commonSideSpacing),
-            settingsStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Constants.settingsStackViewTopSpacing),            
+            settingsStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Constants.settingsStackViewTopSpacing),
         ])
         NSLayoutConstraint.activate([
             playTimeView.topAnchor.constraint(equalTo: settingsStackView.topAnchor),
