@@ -52,7 +52,7 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-                
+        title = "Настройки"
         setupViews()
         setConstraints()
     }

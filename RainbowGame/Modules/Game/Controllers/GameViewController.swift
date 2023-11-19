@@ -22,8 +22,6 @@ class GameViewController: UIViewController {
     
     private func setUpNavigation() {
         
-        self.navigationController!.navigationBar.titleTextAttributes = [
-            .font: UIFont.monospacedSystemFont(ofSize: 36, weight: UIFont.Weight.black)]
         navigationItem.title = "\(makeTimeString(seconds: gameModel.time))"
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: gameModel.timerCounting ? "play.fill" : "pause.fill", withConfiguration: config), style: .plain, target: self, action: #selector(startStopTapped))
     }

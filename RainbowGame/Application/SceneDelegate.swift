@@ -17,6 +17,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let navController = UINavigationController(rootViewController: MainViewController())
         navController.navigationBar.tintColor = UIColor.black
+        navController.navigationBar.titleTextAttributes = [
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30)
+        ]
         navController.navigationBar.backIndicatorImage = UIImage(systemName: "arrowshape.left.fill")
         navController.navigationBar.backIndicatorTransitionMaskImage = UIImage(systemName: "arrowshape.left.fill")
         navController.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
