@@ -11,41 +11,62 @@ class MainViewController: UIViewController {
     
     private let mainView = MainView()
     
-    //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupButtons()
+        setupResumeGame()
         view = mainView
-        addTarget()
     }
     
-    //MARK: - Private Methods
-    
-    private func addTarget(){
-        mainView.startButtonGame.addTarget(self, action: #selector(startButtonTapped), for: .touchUpInside)
-        mainView.statisticsButtonGame.addTarget(self, action: #selector(statisticsButtonTapped), for: .touchUpInside)
-        mainView.settingsButtonGame.addTarget(self, action: #selector(settingsButtonTapped), for: .touchUpInside)
-        mainView.questionsButtonGame.addTarget(self, action: #selector(qusButtonTapped), for: .touchUpInside)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupResumeGame()
     }
     
-    //MARK: - objc Methods
-    
-    @objc private func startButtonTapped(){
-        let gameVC = GameViewController()
-        navigationController?.pushViewController(gameVC, animated: true)
+    private func setupButtons() {
+        mainView.startButtonGame.addTarget(self, action: #selector(startGame), for: .touchUpInside)
+        mainView.settingsButtonGame.addTarget(self, action: #selector(presentSettings), for: .touchUpInside)
+        mainView.statisticsButtonGame.addTarget(self, action: #selector(presentStatistics), for: .touchUpInside)
+        mainView.questionsButtonGame.addTarget(self, action: #selector(presentRules), for: .touchUpInside)
+        mainView.resumeButtonGame.addTarget(self, action: #selector(resumeGame), for: .touchUpInside)
     }
     
-    @objc private func statisticsButtonTapped(){
-        let statisticsVC = ResultsViewController()
-        navigationController?.pushViewController(statisticsVC, animated: true)
+    private func setupResumeGame() {
+        guard let time = UserDefaults.standard.object(forKey: "timerForContinue") as? Int else {
+            mainView.resumeButtonGame.backgroundColor = .lightGray
+            mainView.resumeButtonGame.isUserInteractionEnabled = false
+            return
+        }
+        if time == 0 {
+            mainView.resumeButtonGame.backgroundColor = .lightGray
+            mainView.resumeButtonGame.isUserInteractionEnabled = false
+        } else {
+            mainView.resumeButtonGame.backgroundColor = UIColor(named: "resumeButtonColor")
+            mainView.resumeButtonGame.isUserInteractionEnabled = true
+        }
+        
     }
     
-    @objc private func settingsButtonTapped(){
-        let settingsVC = SettingsViewController()
-        navigationController?.pushViewController(settingsVC, animated: true)
+    @objc func startGame() {
+        let vc = GameViewController()
+        UserDefaults.standard.set(vc.gameModel.timeOfGame * 60, forKey: "timerForContinue")
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    @objc private func qusButtonTapped(){
-        let questionsVC = RulesViewController()
-        navigationController?.pushViewController(questionsVC, animated: true)
+    @objc func presentStatistics() {
+        self.navigationController?.pushViewController(ResultsViewController(), animated: true)
     }
+    
+    @objc func presentSettings() {
+        self.navigationController?.pushViewController(SettingsViewController(), animated: true)
+    }
+    
+    @objc func presentRules() {
+        self.navigationController?.pushViewController(RulesViewController(), animated: true)
+    }
+    
+    @objc func resumeGame() {
+        self.navigationController?.pushViewController(GameViewController(), animated: true)
+    }
+    
 }
